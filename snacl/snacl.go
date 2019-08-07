@@ -13,7 +13,7 @@ import (
 	"io"
 	"runtime/debug"
 
-	"github.com/pkt-cash/libpktwallet/internal/zero"
+	"github.com/pkt-cash/libpktwallet/util/zero"
 	"github.com/btcsuite/golangcrypto/nacl/secretbox"
 	"github.com/btcsuite/golangcrypto/scrypt"
 )

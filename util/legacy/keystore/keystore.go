@@ -30,7 +30,7 @@ import (
 	"github.com/pkt-cash/pktd/txscript"
 	"github.com/pkt-cash/pktd/wire"
 	"github.com/pkt-cash/btcutil"
-	"github.com/pkt-cash/libpktwallet/internal/legacy/rename"
+	"github.com/pkt-cash/libpktwallet/util/legacy/rename"
 )
 
 const (

@@ -18,7 +18,7 @@ import (
 	"github.com/pkt-cash/pktd/txscript"
 	"github.com/pkt-cash/pktd/wire"
 	"github.com/pkt-cash/btcutil"
-	"github.com/pkt-cash/libpktwallet/internal/cfgutil"
+	"github.com/pkt-cash/libpktwallet/util/cfgutil"
 	"github.com/pkt-cash/libpktwallet/netparams"
 	"github.com/pkt-cash/libpktwallet/wallet/txauthor"
 	"github.com/pkt-cash/libpktwallet/wallet/txrules"

@@ -13,7 +13,7 @@ import (
 	"github.com/pkt-cash/pktd/txscript"
 	"github.com/pkt-cash/btcutil"
 	"github.com/pkt-cash/btcutil/hdkeychain"
-	"github.com/pkt-cash/libpktwallet/internal/zero"
+	"github.com/pkt-cash/libpktwallet/util/zero"
 	"github.com/pkt-cash/libpktwallet/walletdb"
 )
 

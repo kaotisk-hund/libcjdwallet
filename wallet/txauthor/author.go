@@ -14,7 +14,7 @@ import (
 	"github.com/pkt-cash/btcutil"
 	"github.com/pkt-cash/libpktwallet/wallet/txrules"
 
-	h "github.com/pkt-cash/libpktwallet/internal/helpers"
+	h "github.com/pkt-cash/libpktwallet/util/helpers"
 	"github.com/pkt-cash/libpktwallet/wallet/internal/txsizes"
 )
 

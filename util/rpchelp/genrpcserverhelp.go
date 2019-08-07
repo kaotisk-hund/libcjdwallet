@@ -13,7 +13,7 @@ import (
 	"strings"
 
 	"github.com/pkt-cash/pktd/btcjson"
-	"github.com/pkt-cash/libpktwallet/internal/rpchelp"
+	"github.com/pkt-cash/libpktwallet/util/rpchelp"
 )
 
 var outputFile = func() *os.File {

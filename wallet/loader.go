@@ -12,7 +12,7 @@ import (
 	"time"
 
 	"github.com/pkt-cash/pktd/chaincfg"
-	"github.com/pkt-cash/libpktwallet/internal/prompt"
+	"github.com/pkt-cash/libpktwallet/util/prompt"
 	"github.com/pkt-cash/libpktwallet/waddrmgr"
 	"github.com/pkt-cash/libpktwallet/walletdb"
 )

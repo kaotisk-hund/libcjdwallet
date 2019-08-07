@@ -16,8 +16,8 @@ import (
 	"time"
 
 	"github.com/pkt-cash/btcutil"
-	"github.com/pkt-cash/libpktwallet/internal/cfgutil"
-	"github.com/pkt-cash/libpktwallet/internal/legacy/keystore"
+	"github.com/pkt-cash/libpktwallet/util/cfgutil"
+	"github.com/pkt-cash/libpktwallet/util/legacy/keystore"
 	"github.com/pkt-cash/libpktwallet/netparams"
 	"github.com/pkt-cash/libpktwallet/wallet"
 	flags "github.com/jessevdk/go-flags"
