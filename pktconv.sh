@@ -12,6 +12,8 @@ CAT=`which cat`
 test "x$CAT" = "x" && die "cat not found"
 FIND=`which find`
 test "x$FIND" = "x" && die "find not found"
+MV=`which mv`
+test "x$MV" = "x" && die "mv not found"
 
 usage() {
     echo "pktconv.sh OPTIONS COMMAND"
@@ -20,6 +22,8 @@ usage() {
     echo "  COMMANDS"
     echo "      imports             # Update imported files"
     echo "      rimports            # Revert imported files back to btcd"
+    echo "      internal            # Move ./internal directory to ./util"
+    echo "      rinternal           # Move ./util directory back to ./internal"
 }
 
 RUN=$SH
@@ -38,6 +42,18 @@ rimports() {
         echo $SED -i -e \'s@"github.com/pkt-cash/libpktwallet@"github.com/btcsuite/btcwallet@g\' $x;
     done | $RUN
 }
+internal() {
+    echo $MV ./internal ./util | $RUN
+    $FIND ./ -name '*.go' | while read x; do
+        echo $SED -i -e \'s@"github.com/pkt-cash/libpktwallet/internal@"github.com/pkt-cash/libpktwallet/util@g\' $x;
+    done | $RUN
+}
+rinternal() {
+    echo $MV ./util ./internal | $RUN
+    $FIND ./ -name '*.go' | while read x; do
+        echo $SED -i -e \'s@"github.com/pkt-cash/libpktwallet/util@"github.com/pkt-cash/libpktwallet/internal@g\' $x;
+    done | $RUN
+}
 
 for arg in "$@"; do
     if test "x$arg" = "x--dryrun"; then
@@ -47,6 +63,12 @@ for arg in "$@"; do
         exit 0
     elif test "x$arg" = "xrimports"; then
         rimports
+        exit 0
+    elif test "x$arg" = "xinternal"; then
+        internal
+        exit 0
+    elif test "x$arg" = "xrinternal"; then
+        rinternal
         exit 0
     else
         usage
