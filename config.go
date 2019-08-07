@@ -15,11 +15,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/btcsuite/btcutil"
-	"github.com/btcsuite/btcwallet/internal/cfgutil"
-	"github.com/btcsuite/btcwallet/internal/legacy/keystore"
-	"github.com/btcsuite/btcwallet/netparams"
-	"github.com/btcsuite/btcwallet/wallet"
+	"github.com/pkt-cash/btcutil"
+	"github.com/pkt-cash/libpktwallet/internal/cfgutil"
+	"github.com/pkt-cash/libpktwallet/internal/legacy/keystore"
+	"github.com/pkt-cash/libpktwallet/netparams"
+	"github.com/pkt-cash/libpktwallet/wallet"
 	flags "github.com/jessevdk/go-flags"
 )
 

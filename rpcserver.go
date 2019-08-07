@@ -16,10 +16,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/btcsuite/btcutil"
-	"github.com/btcsuite/btcwallet/rpc/legacyrpc"
-	"github.com/btcsuite/btcwallet/rpc/rpcserver"
-	"github.com/btcsuite/btcwallet/wallet"
+	"github.com/pkt-cash/btcutil"
+	"github.com/pkt-cash/libpktwallet/rpc/legacyrpc"
+	"github.com/pkt-cash/libpktwallet/rpc/rpcserver"
+	"github.com/pkt-cash/libpktwallet/wallet"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
 )

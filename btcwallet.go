@@ -12,9 +12,9 @@ import (
 	"os"
 	"runtime"
 
-	"github.com/btcsuite/btcwallet/chain"
-	"github.com/btcsuite/btcwallet/rpc/legacyrpc"
-	"github.com/btcsuite/btcwallet/wallet"
+	"github.com/pkt-cash/libpktwallet/chain"
+	"github.com/pkt-cash/libpktwallet/rpc/legacyrpc"
+	"github.com/pkt-cash/libpktwallet/wallet"
 )
 
 var (

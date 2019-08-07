@@ -10,13 +10,13 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/btcsuite/btcd/rpcclient"
+	"github.com/pkt-cash/pktd/rpcclient"
 	"github.com/btcsuite/btclog"
-	"github.com/btcsuite/btcwallet/chain"
-	"github.com/btcsuite/btcwallet/rpc/legacyrpc"
-	"github.com/btcsuite/btcwallet/rpc/rpcserver"
-	"github.com/btcsuite/btcwallet/wallet"
-	"github.com/btcsuite/btcwallet/wtxmgr"
+	"github.com/pkt-cash/libpktwallet/chain"
+	"github.com/pkt-cash/libpktwallet/rpc/legacyrpc"
+	"github.com/pkt-cash/libpktwallet/rpc/rpcserver"
+	"github.com/pkt-cash/libpktwallet/wallet"
+	"github.com/pkt-cash/libpktwallet/wtxmgr"
 	"github.com/jrick/logrotate/rotator"
 )
 
