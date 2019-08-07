@@ -25,37 +25,17 @@ usage() {
 RUN=$SH
 
 imports() {
-    $FIND ./ -name '*.go' | while read x; do
+    ( $FIND ./ -name '*.go' && echo './go.mod' ) | while read x; do
         echo $SED -i -e \'s@"github.com/btcsuite/btcd@"github.com/pkt-cash/pktd@g\' $x;
         echo $SED -i -e \'s@"github.com/btcsuite/btcutil@"github.com/pkt-cash/btcutil@g\' $x;
         echo $SED -i -e \'s@"github.com/btcsuite/btcwallet@"github.com/pkt-cash/libpktwallet@g\' $x;
     done | $RUN
 }
 rimports() {
-    $FIND ./ -name '*.go' | while read x; do
+    ( $FIND ./ -name '*.go' && echo './go.mod' ) | while read x; do
         echo $SED -i -e \'s@"github.com/pkt-cash/pktd@"github.com/btcsuite/btcd@g\' $x;
         echo $SED -i -e \'s@"github.com/pkt-cash/btcutil@"github.com/btcsuite/btcutil@g\' $x;
-        echo $SED -i -e \'s@"github.com/pkt-cash/pktwallet@"github.com/btcsuite/btcwallet@g\' $x;
-    done | $RUN
-}
-btcwallet() {
-    $FIND ./ -name '*.go' | while read x; do
-        echo $SED -i -e \'s@btcwallet@pktwallet@g\' $x;
-    done | $RUN
-}
-rbtcwallet() {
-    $FIND ./ -name '*.go' | while read x; do
-        echo $SED -i -e \'s@pktwallet@btcwallet@g\' $x;
-    done | $RUN
-}
-btcd() {
-    $FIND ./ -name '*.go' | while read x; do
-        echo $SED -i -e \'s@btcd@pktd@g\' $x;
-    done | $RUN
-}
-rbtcd() {
-    $FIND ./ -name '*.go' | while read x; do
-        echo $SED -i -e \'s@pktd@btcd@g\' $x;
+        echo $SED -i -e \'s@"github.com/pkt-cash/libpktwallet@"github.com/btcsuite/btcwallet@g\' $x;
     done | $RUN
 }
 
@@ -67,18 +47,6 @@ for arg in "$@"; do
         exit 0
     elif test "x$arg" = "xrimports"; then
         rimports
-        exit 0
-    elif test "x$arg" = "xbtcwallet"; then
-        btcwallet
-        exit 0
-    elif test "x$arg" = "xrbtcwallet"; then
-        rbtcwallet
-        exit 0
-    elif test "x$arg" = "xbtcd"; then
-        btcd
-        exit 0
-    elif test "x$arg" = "xrbtcd"; then
-        rbtcd
         exit 0
     else
         usage
