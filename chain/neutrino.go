@@ -1,6 +1,11 @@
 package chain
 
 import (
+	"github.com/btcsuite/btcd/txscript"
+)
+
+/*
+import (
 	"errors"
 	"fmt"
 	"sync"
@@ -250,6 +255,7 @@ func (s *NeutrinoClient) FilterBlocks(
 	// No addresses were found for this range.
 	return nil, nil
 }
+*/
 
 // buildFilterBlocksWatchList constructs a watchlist used for matching against a
 // cfilter from a FilterBlocksRequest. The watchlist will be populated with all
@@ -295,6 +301,7 @@ func buildFilterBlocksWatchList(req *FilterBlocksRequest) ([][]byte, error) {
 	return watchList, nil
 }
 
+/*
 // pollCFilter attempts to fetch a CFilter from the neutrino client. This is
 // used to get around the fact that the filter headers may lag behind the
 // highest known block header.
@@ -744,3 +751,4 @@ out:
 	close(s.dequeueNotification)
 	s.wg.Done()
 }
+*/

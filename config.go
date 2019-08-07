@@ -21,7 +21,6 @@ import (
 	"github.com/btcsuite/btcwallet/netparams"
 	"github.com/btcsuite/btcwallet/wallet"
 	flags "github.com/jessevdk/go-flags"
-	"github.com/lightninglabs/neutrino"
 )
 
 const (
@@ -270,9 +269,11 @@ func loadConfig() (*config, []string, error) {
 		UseSPV:                 false,
 		AddPeers:               []string{},
 		ConnectPeers:           []string{},
-		MaxPeers:               neutrino.MaxPeers,
-		BanDuration:            neutrino.BanDuration,
-		BanThreshold:           neutrino.BanThreshold,
+		/*
+			MaxPeers:               neutrino.MaxPeers,
+			BanDuration:            neutrino.BanDuration,
+			BanThreshold:           neutrino.BanThreshold,
+		*/
 	}
 
 	// Pre-parse the command line options to see if an alternative config
@@ -502,9 +503,11 @@ func loadConfig() (*config, []string, error) {
 	}
 
 	if cfg.UseSPV {
-		neutrino.MaxPeers = cfg.MaxPeers
-		neutrino.BanDuration = cfg.BanDuration
-		neutrino.BanThreshold = cfg.BanThreshold
+		/*
+			neutrino.MaxPeers = cfg.MaxPeers
+			neutrino.BanDuration = cfg.BanDuration
+			neutrino.BanThreshold = cfg.BanThreshold
+		*/
 	} else {
 		if cfg.RPCConnect == "" {
 			cfg.RPCConnect = net.JoinHostPort("localhost", activeNet.RPCClientPort)

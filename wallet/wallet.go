@@ -176,8 +176,10 @@ func (w *Wallet) SynchronizeRPC(chainClient chain.Interface) {
 	// If the chain client is a NeutrinoClient instance, set a birthday so
 	// we don't download all the filters as we go.
 	switch cc := chainClient.(type) {
-	case *chain.NeutrinoClient:
-		cc.SetStartTime(w.Manager.Birthday())
+	/*
+		case *chain.NeutrinoClient:
+			cc.SetStartTime(w.Manager.Birthday())
+	*/
 	case *chain.BitcoindClient:
 		cc.SetBirthday(w.Manager.Birthday())
 	}
@@ -2178,12 +2180,14 @@ func (w *Wallet) GetTransactions(startBlock, endBlock *BlockIdentifier, cancel <
 				if err != nil {
 					return nil, err
 				}
-			case *chain.NeutrinoClient:
-				var err error
-				start, err = client.GetBlockHeight(startBlock.hash)
-				if err != nil {
-					return nil, err
-				}
+				/*
+					case *chain.NeutrinoClient:
+						var err error
+						start, err = client.GetBlockHeight(startBlock.hash)
+						if err != nil {
+							return nil, err
+						}
+				*/
 			}
 		}
 	}
@@ -2197,12 +2201,14 @@ func (w *Wallet) GetTransactions(startBlock, endBlock *BlockIdentifier, cancel <
 			switch client := chainClient.(type) {
 			case *chain.RPCClient:
 				endResp = client.GetBlockVerboseTxAsync(endBlock.hash)
-			case *chain.NeutrinoClient:
-				var err error
-				end, err = client.GetBlockHeight(endBlock.hash)
-				if err != nil {
-					return nil, err
-				}
+				/*
+					case *chain.NeutrinoClient:
+						var err error
+						end, err = client.GetBlockHeight(endBlock.hash)
+						if err != nil {
+							return nil, err
+						}
+				*/
 			}
 		}
 	}

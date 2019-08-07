@@ -10,15 +10,11 @@ import (
 	"net/http"
 	_ "net/http/pprof"
 	"os"
-	"path/filepath"
 	"runtime"
-	"sync"
 
 	"github.com/btcsuite/btcwallet/chain"
 	"github.com/btcsuite/btcwallet/rpc/legacyrpc"
 	"github.com/btcsuite/btcwallet/wallet"
-	"github.com/btcsuite/btcwallet/walletdb"
-	"github.com/lightninglabs/neutrino"
 )
 
 var (
@@ -135,6 +131,11 @@ func walletMain() error {
 	return nil
 }
 
+func rpcClientConnectLoop(legacyRPCServer *legacyrpc.Server, loader *wallet.Loader) {
+	panic("please use pktwallet rather than libpktwallet, this is just a library")
+}
+
+/*
 // rpcClientConnectLoop continuously attempts a connection to the consensus RPC
 // server.  When a connection is established, the client is used to sync the
 // loaded wallet, either immediately or when loaded at a later time.
@@ -238,7 +239,7 @@ func rpcClientConnectLoop(legacyRPCServer *legacyrpc.Server, loader *wallet.Load
 		}
 	}
 }
-
+*/
 func readCAFile() []byte {
 	// Read certificate file if TLS is not disabled.
 	var certs []byte
