@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/pkt-cash/pktd/chaincfg"
 	"github.com/pkt-cash/libpktwallet/walletdb"
 	"github.com/pkt-cash/libpktwallet/walletdb/migration"
+	"github.com/pkt-cash/pktd/chaincfg"
 )
 
 // versions is a list of the different database versions. The last entry should
@@ -321,6 +321,14 @@ func populateBirthdayBlock(ns walletdb.ReadWriteBucket) error {
 	case *chaincfg.SimNetParams.GenesisHash:
 		genesisTimestamp =
 			chaincfg.SimNetParams.GenesisBlock.Header.Timestamp
+
+	case *chaincfg.PktTestNetParams.GenesisHash:
+		genesisTimestamp =
+			chaincfg.PktTestNetParams.GenesisBlock.Header.Timestamp
+
+	case *chaincfg.PktMainNetParams.GenesisHash:
+		genesisTimestamp =
+			chaincfg.PktMainNetParams.GenesisBlock.Header.Timestamp
 
 	default:
 		return fmt.Errorf("unknown genesis hash %v", genesisHash)

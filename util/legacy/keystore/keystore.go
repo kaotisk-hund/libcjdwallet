@@ -24,13 +24,13 @@ import (
 
 	"golang.org/x/crypto/ripemd160"
 
+	"github.com/pkt-cash/btcutil"
+	"github.com/pkt-cash/libpktwallet/util/legacy/rename"
 	"github.com/pkt-cash/pktd/btcec"
 	"github.com/pkt-cash/pktd/chaincfg"
 	"github.com/pkt-cash/pktd/chaincfg/chainhash"
 	"github.com/pkt-cash/pktd/txscript"
 	"github.com/pkt-cash/pktd/wire"
-	"github.com/pkt-cash/btcutil"
-	"github.com/pkt-cash/libpktwallet/util/legacy/rename"
 )
 
 const (
@@ -483,6 +483,10 @@ func (net *netParams) ReadFrom(r io.Reader) (int64, error) {
 		*net = (netParams)(chaincfg.TestNet3Params)
 	case wire.SimNet:
 		*net = (netParams)(chaincfg.SimNetParams)
+	case wire.PktTestNet:
+		*net = (netParams)(chaincfg.PktTestNetParams)
+	case wire.PktMainNet:
+		*net = (netParams)(chaincfg.PktMainNetParams)
 	default:
 		return n64, errors.New("unknown network")
 	}
