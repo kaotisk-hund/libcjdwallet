@@ -37,3 +37,19 @@ var SimNetParams = Params{
 	RPCClientPort: "18556",
 	RPCServerPort: "18554",
 }
+
+// PktTestNetParams contains parameters specific running btcwallet and
+// btcd on the pkt.cash test network (wire.PktTestNet).
+var PktTestNetParams = Params{
+	Params:        &chaincfg.PktTestNetParams,
+	RPCClientPort: "18335",
+	RPCServerPort: "18333",
+}
+
+// PktMainNetParams contains parameters specific running btcwallet and
+// btcd on the pkt.cash main network (wire.PktMainNet).
+var PktMainNetParams = Params{
+	Params:        &chaincfg.PktTestNetParams,
+	RPCClientPort: "1835",
+	RPCServerPort: "1833",
+}

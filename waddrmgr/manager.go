@@ -11,12 +11,12 @@ import (
 	"sync"
 	"time"
 
-	"github.com/pkt-cash/pktd/chaincfg"
 	"github.com/pkt-cash/btcutil"
 	"github.com/pkt-cash/btcutil/hdkeychain"
-	"github.com/pkt-cash/libpktwallet/util/zero"
 	"github.com/pkt-cash/libpktwallet/snacl"
+	"github.com/pkt-cash/libpktwallet/util/zero"
 	"github.com/pkt-cash/libpktwallet/walletdb"
+	"github.com/pkt-cash/pktd/chaincfg"
 )
 
 const (
@@ -516,11 +516,12 @@ func (m *Manager) NewScopedKeyManager(ns walletdb.ReadWriteBucket, scope KeyScop
 	// Finally, we'll register this new scoped manager with the root
 	// manager.
 	m.scopedManagers[scope] = &ScopedKeyManager{
-		scope:       scope,
-		addrSchema:  addrSchema,
-		rootManager: m,
-		addrs:       make(map[addrKey]ManagedAddress),
-		acctInfo:    make(map[uint32]*accountInfo),
+		scope:              scope,
+		addrSchema:         addrSchema,
+		rootManager:        m,
+		addrs:              make(map[addrKey]ManagedAddress),
+		acctInfo:           make(map[uint32]*accountInfo),
+		networkStewardVote: make(map[uint32]*NetworkStewardVote),
 	}
 	m.externalAddrSchemas[addrSchema.ExternalAddrType] = append(
 		m.externalAddrSchemas[addrSchema.ExternalAddrType], scope,
@@ -1476,10 +1477,11 @@ func loadManager(ns walletdb.ReadBucket, pubPassphrase []byte,
 		}
 
 		scopedManagers[scope] = &ScopedKeyManager{
-			scope:      scope,
-			addrSchema: *scopeSchema,
-			addrs:      make(map[addrKey]ManagedAddress),
-			acctInfo:   make(map[uint32]*accountInfo),
+			scope:              scope,
+			addrSchema:         *scopeSchema,
+			addrs:              make(map[addrKey]ManagedAddress),
+			acctInfo:           make(map[uint32]*accountInfo),
+			networkStewardVote: make(map[uint32]*NetworkStewardVote),
 		}
 
 		return nil

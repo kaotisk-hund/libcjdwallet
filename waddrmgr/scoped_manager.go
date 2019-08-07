@@ -4,12 +4,12 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/pkt-cash/pktd/btcec"
-	"github.com/pkt-cash/pktd/chaincfg"
 	"github.com/pkt-cash/btcutil"
 	"github.com/pkt-cash/btcutil/hdkeychain"
 	"github.com/pkt-cash/libpktwallet/util/zero"
 	"github.com/pkt-cash/libpktwallet/walletdb"
+	"github.com/pkt-cash/pktd/btcec"
+	"github.com/pkt-cash/pktd/chaincfg"
 )
 
 // DerivationPath represents a derivation path from a particular key manager's
@@ -80,6 +80,12 @@ type ScopeAddrSchema struct {
 	// InternalAddrType is the address type for all keys within branch 1
 	// (change addresses).
 	InternalAddrType AddressType
+}
+
+// NetworkStewardVote is the network steward which an account will be voting for
+type NetworkStewardVote struct {
+	VoteFor     []byte
+	VoteAgainst []byte
 }
 
 var (
@@ -161,6 +167,10 @@ type ScopedKeyManager struct {
 	// acctInfo houses information about accounts including what is needed
 	// to generate deterministic chained keys for each created account.
 	acctInfo map[uint32]*accountInfo
+
+	// networkStewardVote is a cached unencrypted version of the network
+	// steward vote in the database.
+	networkStewardVote map[uint32]*NetworkStewardVote
 
 	// deriveOnUnlock is a list of private keys which needs to be derived
 	// on the next unlock.  This occurs when a public address is derived
@@ -398,6 +408,108 @@ func (s *ScopedKeyManager) loadAccountInfo(ns walletdb.ReadBucket,
 	// Add it to the cache and return it when everything is successful.
 	s.acctInfo[account] = acctInfo
 	return acctInfo, nil
+}
+
+// loadNetworkStewardVote attempts to load and cache the network steward
+// vore for the given account.
+//
+// This function MUST be called with the manager lock held for writes.
+func (s *ScopedKeyManager) loadNetworkStewardVote(ns walletdb.ReadBucket,
+	account uint32) (*NetworkStewardVote, error) {
+
+	if nsv, ok := s.networkStewardVote[account]; ok {
+		return nsv, nil
+	}
+
+	row, err := fetchAccountNetworkStewardVote(ns, &s.scope, account)
+	if err != nil {
+		return nil, maybeConvertDbError(err)
+	}
+
+	if row == nil {
+		delete(s.networkStewardVote, account)
+		return nil, nil
+	}
+
+	var voteFor, voteAgainst []byte
+	if row.encryptedVoteFor != nil {
+		voteFor, err = s.rootManager.cryptoKeyPub.Decrypt(row.encryptedVoteFor)
+		if err != nil {
+			str := fmt.Sprintf("failed to decrypt network steward voteFor for account %d",
+				account)
+			return nil, managerError(ErrCrypto, str, err)
+		}
+	}
+	if row.encryptedVoteAgainst != nil {
+		voteAgainst, err = s.rootManager.cryptoKeyPub.Decrypt(row.encryptedVoteAgainst)
+		if err != nil {
+			str := fmt.Sprintf("failed to decrypt network steward voteAgainst for account %d",
+				account)
+			return nil, managerError(ErrCrypto, str, err)
+		}
+	}
+
+	out := &NetworkStewardVote{
+		VoteFor:     voteFor,
+		VoteAgainst: voteAgainst,
+	}
+	s.networkStewardVote[account] = out
+	return out, nil
+}
+
+// putNetworkStewardVote sets the network steward vote for an account,
+// if vote is nil then it is deleted.
+//
+// NOTE: This function MUST be called with the manager lock held for writes.
+func (s *ScopedKeyManager) putNetworkStewardVote(ns walletdb.ReadWriteBucket,
+	account uint32, vote *NetworkStewardVote) error {
+
+	if vote == nil {
+		return deleteAccountNetworkStewardVote(ns, &s.scope, account)
+	}
+
+	nsv := dbNetworkStewardVote{}
+
+	var err error
+	if vote.VoteFor != nil {
+		nsv.encryptedVoteFor, err = s.rootManager.cryptoKeyPub.Encrypt(vote.VoteFor)
+		if err != nil {
+			return err
+		}
+	}
+	if vote.VoteAgainst != nil {
+		nsv.encryptedVoteAgainst, err = s.rootManager.cryptoKeyPub.Encrypt(vote.VoteAgainst)
+		if err != nil {
+			return err
+		}
+	}
+	if err = putAccountNetworkStewardVote(ns, &s.scope, account, &nsv); err != nil {
+		return err
+	}
+
+	// Let the value be loaded back up from the db once
+	delete(s.networkStewardVote, account)
+	return nil
+}
+
+// NetworkStewardVote returns the network steward which this account will be voting for.
+func (s *ScopedKeyManager) NetworkStewardVote(ns walletdb.ReadBucket,
+	account uint32) (*NetworkStewardVote, error) {
+
+	defer s.mtx.RUnlock()
+	s.mtx.RLock()
+
+	return s.loadNetworkStewardVote(ns, account)
+}
+
+// PutNetworkStewardVote updates the network steward which this account will be voting for.
+func (s *ScopedKeyManager) PutNetworkStewardVote(ns walletdb.ReadWriteBucket,
+	account uint32, vote *NetworkStewardVote) error {
+
+	defer s.mtx.RUnlock()
+	s.mtx.RLock()
+
+	return s.putNetworkStewardVote(ns, account, vote)
 }
 
 // AccountProperties returns properties associated with the account, such as
