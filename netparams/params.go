@@ -49,7 +49,7 @@ var PktTestNetParams = Params{
 // PktMainNetParams contains parameters specific running btcwallet and
 // btcd on the pkt.cash main network (wire.PktMainNet).
 var PktMainNetParams = Params{
-	Params:        &chaincfg.PktTestNetParams,
+	Params:        &chaincfg.PktMainNetParams,
 	RPCClientPort: "64765",
 	RPCServerPort: "64763",
 }
