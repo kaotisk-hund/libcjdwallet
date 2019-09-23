@@ -1,6 +1,7 @@
 package waddrmgr
 
 import (
+	"crypto/sha256"
 	"fmt"
 	"sync"
 
@@ -483,6 +484,7 @@ func (s *ScopedKeyManager) putNetworkStewardVote(ns walletdb.ReadWriteBucket,
 			return err
 		}
 	}
+
 	if err = putAccountNetworkStewardVote(ns, &s.scope, account, &nsv); err != nil {
 		return err
 	}
@@ -661,6 +663,10 @@ func (s *ScopedKeyManager) scriptAddressRowToManaged(row *dbScriptAddressRow) (M
 	if err != nil {
 		str := "failed to decrypt imported script hash"
 		return nil, managerError(ErrCrypto, str, err)
+	}
+
+	if len(scriptHash) == 32 {
+		return newWitnessScriptAddress(s, row.account, scriptHash, row.encryptedScript)
 	}
 
 	return newScriptAddress(s, row.account, scriptHash, row.encryptedScript)
@@ -1636,6 +1642,105 @@ func (s *ScopedKeyManager) ImportPrivateKey(ns walletdb.ReadWriteBucket,
 	// return it.
 	s.addrs[addrKey(managedAddr.Address().ScriptAddress())] = managedAddr
 	return managedAddr, nil
+}
+
+func (s *ScopedKeyManager) ImportWitnessScript(ns walletdb.ReadWriteBucket,
+	script []byte, bs *BlockStamp) (ManagedScriptAddress, error) {
+
+	s.mtx.Lock()
+	defer s.mtx.Unlock()
+
+	// The manager must be unlocked to encrypt the imported script.
+	if s.rootManager.IsLocked() && !s.rootManager.WatchOnly() {
+		return nil, managerError(ErrLocked, errLocked, nil)
+	}
+
+	// Prevent duplicates.
+	scriptHash0 := sha256.Sum256(script)
+	scriptHash256 := scriptHash0[:]
+	alreadyExists := s.existsAddress(ns, scriptHash256)
+	if alreadyExists {
+		str := fmt.Sprintf("address for script hash %x already exists",
+			scriptHash256)
+		return nil, managerError(ErrDuplicateAddress, str, nil)
+	}
+
+	// Encrypt the script hash using the crypto public key so it is
+	// accessible when the address manager is locked or watching-only.
+	encryptedHash, err := s.rootManager.cryptoKeyPub.Encrypt(scriptHash256)
+	if err != nil {
+		str := fmt.Sprintf("failed to encrypt script hash %x",
+			scriptHash256)
+		return nil, managerError(ErrCrypto, str, err)
+	}
+
+	// Encrypt the script for storage in database using the crypto script
+	// key when not a watching-only address manager.
+	var encryptedScript []byte
+	if !s.rootManager.WatchOnly() {
+		encryptedScript, err = s.rootManager.cryptoKeyScript.Encrypt(
+			script,
+		)
+		if err != nil {
+			str := fmt.Sprintf("failed to encrypt script for %x",
+				scriptHash256)
+			return nil, managerError(ErrCrypto, str, err)
+		}
+	}
+
+	// The start block needs to be updated when the newly imported address
+	// is before the current one.
+	updateStartBlock := false
+	s.rootManager.mtx.Lock()
+	if bs.Height < s.rootManager.syncState.startBlock.Height {
+		updateStartBlock = true
+	}
+	s.rootManager.mtx.Unlock()
+
+	// Save the new imported address to the db and update start block (if
+	// needed) in a single transaction.
+	err = putScriptAddress(
+		ns, &s.scope, scriptHash256, ImportedAddrAccount, ssNone,
+		encryptedHash, encryptedScript,
+	)
+	if err != nil {
+		return nil, maybeConvertDbError(err)
+	}
+
+	if updateStartBlock {
+		err := putStartBlock(ns, bs)
+		if err != nil {
+			return nil, maybeConvertDbError(err)
+		}
+	}
+
+	// Now that the database has been updated, update the start block in
+	// memory too if needed.
+	if updateStartBlock {
+		s.rootManager.mtx.Lock()
+		s.rootManager.syncState.startBlock = *bs
+		s.rootManager.mtx.Unlock()
+	}
+
+	// Create a new managed address based on the imported script.  Also,
+	// when not a watching-only address manager, make a copy of the script
+	// since it will be cleared on lock and the script the caller passed
+	// should not be cleared out from under the caller.
+	scriptAddr, err := newWitnessScriptAddress(s, ImportedAddrAccount,
+		scriptHash256, encryptedScript)
+
+	if err != nil {
+		return nil, err
+	}
+	if !s.rootManager.WatchOnly() {
+		scriptAddr.scriptCT = make([]byte, len(script))
+		copy(scriptAddr.scriptCT, script)
+	}
+
+	// Add the new managed address to the cache of recent addresses and
+	// return it.
+	s.addrs[addrKey(scriptHash256)] = scriptAddr
+	return scriptAddr, nil
 }
 
 // ImportScript imports a user-provided script into the address manager.  The
