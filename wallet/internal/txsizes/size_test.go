@@ -5,8 +5,8 @@ import (
 	"encoding/hex"
 	"testing"
 
-	"github.com/pkt-cash/pktd/wire"
-	. "github.com/pkt-cash/libpktwallet/wallet/internal/txsizes"
+	"github.com/kaotisk-hund/cjdcoind/wire"
+	. "github.com/kaotisk-hund/libcjdwallet/wallet/internal/txsizes"
 )
 
 const (

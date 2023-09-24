@@ -11,15 +11,15 @@ import (
 	"testing"
 	"time"
 
-	"github.com/pkt-cash/pktd/chaincfg"
-	"github.com/pkt-cash/pktd/chaincfg/chainhash"
-	"github.com/pkt-cash/pktd/txscript"
-	"github.com/pkt-cash/pktd/wire"
-	"github.com/pkt-cash/btcutil/hdkeychain"
-	"github.com/pkt-cash/libpktwallet/waddrmgr"
-	"github.com/pkt-cash/libpktwallet/walletdb"
-	_ "github.com/pkt-cash/libpktwallet/walletdb/bdb"
-	"github.com/pkt-cash/libpktwallet/wtxmgr"
+	"github.com/kaotisk-hund/cjdcoind/chaincfg"
+	"github.com/kaotisk-hund/cjdcoind/chaincfg/chainhash"
+	"github.com/kaotisk-hund/cjdcoind/txscript"
+	"github.com/kaotisk-hund/cjdcoind/wire"
+	"github.com/kaotisk-hund/btcutil/hdkeychain"
+	"github.com/kaotisk-hund/libcjdwallet/waddrmgr"
+	"github.com/kaotisk-hund/libcjdwallet/walletdb"
+	_ "github.com/kaotisk-hund/libcjdwallet/walletdb/bdb"
+	"github.com/kaotisk-hund/libcjdwallet/wtxmgr"
 )
 
 // TestTxToOutput checks that no new address is added to he database if we

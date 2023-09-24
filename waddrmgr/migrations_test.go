@@ -8,9 +8,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/pkt-cash/pktd/chaincfg"
-	"github.com/pkt-cash/pktd/chaincfg/chainhash"
-	"github.com/pkt-cash/libpktwallet/walletdb"
+	"github.com/kaotisk-hund/cjdcoind/chaincfg"
+	"github.com/kaotisk-hund/cjdcoind/chaincfg/chainhash"
+	"github.com/kaotisk-hund/libcjdwallet/walletdb"
 )
 
 // applyMigration is a helper function that allows us to assert the state of the

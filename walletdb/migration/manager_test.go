@@ -6,8 +6,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/pkt-cash/libpktwallet/walletdb"
-	"github.com/pkt-cash/libpktwallet/walletdb/migration"
+	"github.com/kaotisk-hund/libcjdwallet/walletdb"
+	"github.com/kaotisk-hund/libcjdwallet/walletdb/migration"
 	"github.com/davecgh/go-spew/spew"
 )
 

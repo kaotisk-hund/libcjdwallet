@@ -6,9 +6,9 @@
 package wallet
 
 import (
-	"github.com/pkt-cash/pktd/txscript"
-	"github.com/pkt-cash/pktd/wire"
-	"github.com/pkt-cash/libpktwallet/walletdb"
+	"github.com/kaotisk-hund/cjdcoind/txscript"
+	"github.com/kaotisk-hund/cjdcoind/wire"
+	"github.com/kaotisk-hund/libcjdwallet/walletdb"
 )
 
 // OutputSelectionPolicy describes the rules for selecting an output from the

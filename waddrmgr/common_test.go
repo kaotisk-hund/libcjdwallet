@@ -12,9 +12,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/pkt-cash/pktd/chaincfg"
-	"github.com/pkt-cash/libpktwallet/walletdb"
-	_ "github.com/pkt-cash/libpktwallet/walletdb/bdb"
+	"github.com/kaotisk-hund/cjdcoind/chaincfg"
+	"github.com/kaotisk-hund/libcjdwallet/walletdb"
+	_ "github.com/kaotisk-hund/libcjdwallet/walletdb/bdb"
 )
 
 var (

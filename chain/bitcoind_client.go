@@ -9,14 +9,14 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/pkt-cash/pktd/btcjson"
-	"github.com/pkt-cash/pktd/chaincfg"
-	"github.com/pkt-cash/pktd/chaincfg/chainhash"
-	"github.com/pkt-cash/pktd/txscript"
-	"github.com/pkt-cash/pktd/wire"
-	"github.com/pkt-cash/btcutil"
-	"github.com/pkt-cash/libpktwallet/waddrmgr"
-	"github.com/pkt-cash/libpktwallet/wtxmgr"
+	"github.com/kaotisk-hund/cjdcoind/btcjson"
+	"github.com/kaotisk-hund/cjdcoind/chaincfg"
+	"github.com/kaotisk-hund/cjdcoind/chaincfg/chainhash"
+	"github.com/kaotisk-hund/cjdcoind/txscript"
+	"github.com/kaotisk-hund/cjdcoind/wire"
+	"github.com/kaotisk-hund/btcutil"
+	"github.com/kaotisk-hund/libcjdwallet/waddrmgr"
+	"github.com/kaotisk-hund/libcjdwallet/wtxmgr"
 )
 
 var (

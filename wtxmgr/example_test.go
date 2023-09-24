@@ -7,10 +7,10 @@ package wtxmgr
 import (
 	"fmt"
 
-	"github.com/pkt-cash/pktd/chaincfg"
-	"github.com/pkt-cash/pktd/chaincfg/chainhash"
-	"github.com/pkt-cash/pktd/wire"
-	"github.com/pkt-cash/libpktwallet/walletdb"
+	"github.com/kaotisk-hund/cjdcoind/chaincfg"
+	"github.com/kaotisk-hund/cjdcoind/chaincfg/chainhash"
+	"github.com/kaotisk-hund/cjdcoind/wire"
+	"github.com/kaotisk-hund/libcjdwallet/walletdb"
 )
 
 var (

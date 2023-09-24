@@ -10,13 +10,13 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/pkt-cash/pktd/rpcclient"
+	"github.com/kaotisk-hund/cjdcoind/rpcclient"
 	"github.com/btcsuite/btclog"
-	"github.com/pkt-cash/libpktwallet/chain"
-	"github.com/pkt-cash/libpktwallet/rpc/legacyrpc"
-	"github.com/pkt-cash/libpktwallet/rpc/rpcserver"
-	"github.com/pkt-cash/libpktwallet/wallet"
-	"github.com/pkt-cash/libpktwallet/wtxmgr"
+	"github.com/kaotisk-hund/libcjdwallet/chain"
+	"github.com/kaotisk-hund/libcjdwallet/rpc/legacyrpc"
+	"github.com/kaotisk-hund/libcjdwallet/rpc/rpcserver"
+	"github.com/kaotisk-hund/libcjdwallet/wallet"
+	"github.com/kaotisk-hund/libcjdwallet/wtxmgr"
 	"github.com/jrick/logrotate/rotator"
 )
 

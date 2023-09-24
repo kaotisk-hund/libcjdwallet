@@ -5,12 +5,12 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/pkt-cash/btcutil"
-	"github.com/pkt-cash/btcutil/hdkeychain"
-	"github.com/pkt-cash/libpktwallet/util/zero"
-	"github.com/pkt-cash/libpktwallet/walletdb"
-	"github.com/pkt-cash/pktd/btcec"
-	"github.com/pkt-cash/pktd/chaincfg"
+	"github.com/kaotisk-hund/btcutil"
+	"github.com/kaotisk-hund/btcutil/hdkeychain"
+	"github.com/kaotisk-hund/libcjdwallet/util/zero"
+	"github.com/kaotisk-hund/libcjdwallet/walletdb"
+	"github.com/kaotisk-hund/cjdcoind/btcec"
+	"github.com/kaotisk-hund/cjdcoind/chaincfg"
 )
 
 // DerivationPath represents a derivation path from a particular key manager's

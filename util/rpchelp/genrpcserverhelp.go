@@ -12,8 +12,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/pkt-cash/pktd/btcjson"
-	"github.com/pkt-cash/libpktwallet/util/rpchelp"
+	"github.com/kaotisk-hund/cjdcoind/btcjson"
+	"github.com/kaotisk-hund/libcjdwallet/util/rpchelp"
 )
 
 var outputFile = func() *os.File {

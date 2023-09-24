@@ -6,11 +6,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/pkt-cash/pktd/chaincfg"
-	"github.com/pkt-cash/pktd/chaincfg/chainhash"
-	"github.com/pkt-cash/pktd/wire"
-	"github.com/pkt-cash/libpktwallet/waddrmgr"
-	_ "github.com/pkt-cash/libpktwallet/walletdb/bdb"
+	"github.com/kaotisk-hund/cjdcoind/chaincfg"
+	"github.com/kaotisk-hund/cjdcoind/chaincfg/chainhash"
+	"github.com/kaotisk-hund/cjdcoind/wire"
+	"github.com/kaotisk-hund/libcjdwallet/waddrmgr"
+	_ "github.com/kaotisk-hund/libcjdwallet/walletdb/bdb"
 )
 
 const (

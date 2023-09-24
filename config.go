@@ -15,11 +15,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/pkt-cash/btcutil"
-	"github.com/pkt-cash/libpktwallet/util/cfgutil"
-	"github.com/pkt-cash/libpktwallet/util/legacy/keystore"
-	"github.com/pkt-cash/libpktwallet/netparams"
-	"github.com/pkt-cash/libpktwallet/wallet"
+	"github.com/kaotisk-hund/btcutil"
+	"github.com/kaotisk-hund/libcjdwallet/util/cfgutil"
+	"github.com/kaotisk-hund/libcjdwallet/util/legacy/keystore"
+	"github.com/kaotisk-hund/libcjdwallet/netparams"
+	"github.com/kaotisk-hund/libcjdwallet/wallet"
 	flags "github.com/jessevdk/go-flags"
 )
 

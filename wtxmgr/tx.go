@@ -9,12 +9,12 @@ import (
 	"bytes"
 	"time"
 
-	"github.com/pkt-cash/pktd/blockchain"
-	"github.com/pkt-cash/pktd/chaincfg"
-	"github.com/pkt-cash/pktd/chaincfg/chainhash"
-	"github.com/pkt-cash/pktd/wire"
-	"github.com/pkt-cash/btcutil"
-	"github.com/pkt-cash/libpktwallet/walletdb"
+	"github.com/kaotisk-hund/cjdcoind/blockchain"
+	"github.com/kaotisk-hund/cjdcoind/chaincfg"
+	"github.com/kaotisk-hund/cjdcoind/chaincfg/chainhash"
+	"github.com/kaotisk-hund/cjdcoind/wire"
+	"github.com/kaotisk-hund/btcutil"
+	"github.com/kaotisk-hund/libcjdwallet/walletdb"
 )
 
 // Block contains the minimum amount of data to uniquely identify any block on

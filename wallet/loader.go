@@ -11,10 +11,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/pkt-cash/pktd/chaincfg"
-	"github.com/pkt-cash/libpktwallet/util/prompt"
-	"github.com/pkt-cash/libpktwallet/waddrmgr"
-	"github.com/pkt-cash/libpktwallet/walletdb"
+	"github.com/kaotisk-hund/cjdcoind/chaincfg"
+	"github.com/kaotisk-hund/libcjdwallet/util/prompt"
+	"github.com/kaotisk-hund/libcjdwallet/waddrmgr"
+	"github.com/kaotisk-hund/libcjdwallet/walletdb"
 )
 
 const (

@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/pkt-cash/pktd/chaincfg/chainhash"
-	"github.com/pkt-cash/libpktwallet/walletdb"
+	"github.com/kaotisk-hund/cjdcoind/chaincfg/chainhash"
+	"github.com/kaotisk-hund/libcjdwallet/walletdb"
 )
 
 // TestStoreMaxReorgDepth ensures that we can only store up to MaxReorgDepth

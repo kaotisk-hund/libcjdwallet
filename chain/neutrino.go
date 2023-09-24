@@ -1,7 +1,7 @@
 package chain
 
 import (
-	"github.com/pkt-cash/pktd/txscript"
+	"github.com/kaotisk-hund/cjdcoind/txscript"
 )
 
 /*
@@ -11,16 +11,16 @@ import (
 	"sync"
 	"time"
 
-	"github.com/pkt-cash/pktd/chaincfg"
-	"github.com/pkt-cash/pktd/chaincfg/chainhash"
-	"github.com/pkt-cash/pktd/rpcclient"
-	"github.com/pkt-cash/pktd/txscript"
-	"github.com/pkt-cash/pktd/wire"
-	"github.com/pkt-cash/btcutil"
-	"github.com/pkt-cash/btcutil/gcs"
-	"github.com/pkt-cash/btcutil/gcs/builder"
-	"github.com/pkt-cash/libpktwallet/waddrmgr"
-	"github.com/pkt-cash/libpktwallet/wtxmgr"
+	"github.com/kaotisk-hund/cjdcoind/chaincfg"
+	"github.com/kaotisk-hund/cjdcoind/chaincfg/chainhash"
+	"github.com/kaotisk-hund/cjdcoind/rpcclient"
+	"github.com/kaotisk-hund/cjdcoind/txscript"
+	"github.com/kaotisk-hund/cjdcoind/wire"
+	"github.com/kaotisk-hund/btcutil"
+	"github.com/kaotisk-hund/btcutil/gcs"
+	"github.com/kaotisk-hund/btcutil/gcs/builder"
+	"github.com/kaotisk-hund/libcjdwallet/waddrmgr"
+	"github.com/kaotisk-hund/libcjdwallet/wtxmgr"
 	"github.com/lightninglabs/neutrino"
 )
 

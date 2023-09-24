@@ -14,11 +14,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/pkt-cash/pktd/chaincfg"
-	"github.com/pkt-cash/pktd/chaincfg/chainhash"
-	"github.com/pkt-cash/btcutil"
-	"github.com/pkt-cash/libpktwallet/snacl"
-	"github.com/pkt-cash/libpktwallet/walletdb"
+	"github.com/kaotisk-hund/cjdcoind/chaincfg"
+	"github.com/kaotisk-hund/cjdcoind/chaincfg/chainhash"
+	"github.com/kaotisk-hund/btcutil"
+	"github.com/kaotisk-hund/libcjdwallet/snacl"
+	"github.com/kaotisk-hund/libcjdwallet/walletdb"
 	"github.com/davecgh/go-spew/spew"
 )
 

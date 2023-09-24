@@ -12,9 +12,9 @@ import (
 	"os"
 	"runtime"
 
-	"github.com/pkt-cash/libpktwallet/chain"
-	"github.com/pkt-cash/libpktwallet/rpc/legacyrpc"
-	"github.com/pkt-cash/libpktwallet/wallet"
+	"github.com/kaotisk-hund/libcjdwallet/chain"
+	"github.com/kaotisk-hund/libcjdwallet/rpc/legacyrpc"
+	"github.com/kaotisk-hund/libcjdwallet/wallet"
 )
 
 var (
@@ -132,7 +132,7 @@ func walletMain() error {
 }
 
 func rpcClientConnectLoop(legacyRPCServer *legacyrpc.Server, loader *wallet.Loader) {
-	panic("please use pktwallet rather than libpktwallet, this is just a library")
+	panic("please use cjdwallet rather than libcjdwallet, this is just a library")
 }
 
 /*

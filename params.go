@@ -4,6 +4,6 @@
 
 package main
 
-import "github.com/pkt-cash/libpktwallet/netparams"
+import "github.com/kaotisk-hund/libcjdwallet/netparams"
 
 var activeNet = &netparams.MainNetParams

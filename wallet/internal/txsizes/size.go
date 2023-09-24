@@ -5,10 +5,10 @@
 package txsizes
 
 import (
-	"github.com/pkt-cash/pktd/blockchain"
-	"github.com/pkt-cash/pktd/wire"
+	"github.com/kaotisk-hund/cjdcoind/blockchain"
+	"github.com/kaotisk-hund/cjdcoind/wire"
 
-	h "github.com/pkt-cash/libpktwallet/util/helpers"
+	h "github.com/kaotisk-hund/libcjdwallet/util/helpers"
 )
 
 // Worst case script and input/output size estimates.

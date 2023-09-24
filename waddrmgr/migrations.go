@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/pkt-cash/libpktwallet/walletdb"
-	"github.com/pkt-cash/libpktwallet/walletdb/migration"
-	"github.com/pkt-cash/pktd/chaincfg"
+	"github.com/kaotisk-hund/libcjdwallet/walletdb"
+	"github.com/kaotisk-hund/libcjdwallet/walletdb/migration"
+	"github.com/kaotisk-hund/cjdcoind/chaincfg"
 )
 
 // versions is a list of the different database versions. The last entry should

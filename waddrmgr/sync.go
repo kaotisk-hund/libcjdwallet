@@ -7,8 +7,8 @@ package waddrmgr
 import (
 	"time"
 
-	"github.com/pkt-cash/pktd/chaincfg/chainhash"
-	"github.com/pkt-cash/libpktwallet/walletdb"
+	"github.com/kaotisk-hund/cjdcoind/chaincfg/chainhash"
+	"github.com/kaotisk-hund/libcjdwallet/walletdb"
 )
 
 // BlockStamp defines a block (by height and a unique hash) and is used to mark

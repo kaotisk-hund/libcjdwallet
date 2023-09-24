@@ -4,7 +4,7 @@ import (
 	"errors"
 	"sort"
 
-	"github.com/pkt-cash/libpktwallet/walletdb"
+	"github.com/kaotisk-hund/libcjdwallet/walletdb"
 )
 
 var (

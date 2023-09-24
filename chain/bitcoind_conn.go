@@ -9,10 +9,10 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/pkt-cash/pktd/chaincfg"
-	"github.com/pkt-cash/pktd/chaincfg/chainhash"
-	"github.com/pkt-cash/pktd/rpcclient"
-	"github.com/pkt-cash/pktd/wire"
+	"github.com/kaotisk-hund/cjdcoind/chaincfg"
+	"github.com/kaotisk-hund/cjdcoind/chaincfg/chainhash"
+	"github.com/kaotisk-hund/cjdcoind/rpcclient"
+	"github.com/kaotisk-hund/cjdcoind/wire"
 	"github.com/lightninglabs/gozmq"
 )
 

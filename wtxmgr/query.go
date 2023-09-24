@@ -8,9 +8,9 @@ package wtxmgr
 import (
 	"fmt"
 
-	"github.com/pkt-cash/pktd/chaincfg/chainhash"
-	"github.com/pkt-cash/btcutil"
-	"github.com/pkt-cash/libpktwallet/walletdb"
+	"github.com/kaotisk-hund/cjdcoind/chaincfg/chainhash"
+	"github.com/kaotisk-hund/btcutil"
+	"github.com/kaotisk-hund/libcjdwallet/walletdb"
 )
 
 // CreditRecord contains metadata regarding a transaction credit for a known

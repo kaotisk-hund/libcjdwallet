@@ -11,16 +11,16 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/pkt-cash/pktd/btcec"
-	"github.com/pkt-cash/pktd/chaincfg"
-	"github.com/pkt-cash/pktd/wire"
-	"github.com/pkt-cash/btcutil"
-	"github.com/pkt-cash/libpktwallet/util/legacy/keystore"
-	"github.com/pkt-cash/libpktwallet/util/prompt"
-	"github.com/pkt-cash/libpktwallet/waddrmgr"
-	"github.com/pkt-cash/libpktwallet/wallet"
-	"github.com/pkt-cash/libpktwallet/walletdb"
-	_ "github.com/pkt-cash/libpktwallet/walletdb/bdb"
+	"github.com/kaotisk-hund/cjdcoind/btcec"
+	"github.com/kaotisk-hund/cjdcoind/chaincfg"
+	"github.com/kaotisk-hund/cjdcoind/wire"
+	"github.com/kaotisk-hund/btcutil"
+	"github.com/kaotisk-hund/libcjdwallet/util/legacy/keystore"
+	"github.com/kaotisk-hund/libcjdwallet/util/prompt"
+	"github.com/kaotisk-hund/libcjdwallet/waddrmgr"
+	"github.com/kaotisk-hund/libcjdwallet/wallet"
+	"github.com/kaotisk-hund/libcjdwallet/walletdb"
+	_ "github.com/kaotisk-hund/libcjdwallet/walletdb/bdb"
 )
 
 // networkDir returns the directory name of a network directory to hold wallet

@@ -4,7 +4,7 @@
 
 package netparams
 
-import "github.com/pkt-cash/pktd/chaincfg"
+import "github.com/kaotisk-hund/cjdcoind/chaincfg"
 
 // Params is used to group parameters for various networks such as the main
 // network and test networks.

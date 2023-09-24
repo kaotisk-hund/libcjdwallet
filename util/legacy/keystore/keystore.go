@@ -24,13 +24,13 @@ import (
 
 	"golang.org/x/crypto/ripemd160"
 
-	"github.com/pkt-cash/btcutil"
-	"github.com/pkt-cash/libpktwallet/util/legacy/rename"
-	"github.com/pkt-cash/pktd/btcec"
-	"github.com/pkt-cash/pktd/chaincfg"
-	"github.com/pkt-cash/pktd/chaincfg/chainhash"
-	"github.com/pkt-cash/pktd/txscript"
-	"github.com/pkt-cash/pktd/wire"
+	"github.com/kaotisk-hund/btcutil"
+	"github.com/kaotisk-hund/libcjdwallet/util/legacy/rename"
+	"github.com/kaotisk-hund/cjdcoind/btcec"
+	"github.com/kaotisk-hund/cjdcoind/chaincfg"
+	"github.com/kaotisk-hund/cjdcoind/chaincfg/chainhash"
+	"github.com/kaotisk-hund/cjdcoind/txscript"
+	"github.com/kaotisk-hund/cjdcoind/wire"
 )
 
 const (

@@ -5,9 +5,9 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/pkt-cash/pktd/chaincfg/chainhash"
-	"github.com/pkt-cash/pktd/wire"
-	"github.com/pkt-cash/libpktwallet/wtxmgr"
+	"github.com/kaotisk-hund/cjdcoind/chaincfg/chainhash"
+	"github.com/kaotisk-hund/cjdcoind/wire"
+	"github.com/kaotisk-hund/libcjdwallet/wtxmgr"
 )
 
 // createTx is a helper method to create random transactions that spend

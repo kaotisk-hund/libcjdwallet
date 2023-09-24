@@ -38,10 +38,10 @@ github.com/lightninglabs/gozmq v0.0.0-20190710231225-cea2a031735d h1:tt8hwvxl6fk
 github.com/lightninglabs/gozmq v0.0.0-20190710231225-cea2a031735d/go.mod h1:vxmQPeIQxPf6Jf9rM8R+B4rKBqLA2AjttNxkFBL2Plk=
 github.com/onsi/ginkgo v1.6.0/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+WWjE=
 github.com/onsi/gomega v1.4.1/go.mod h1:C1qb7wdrVGGVU+Z6iS04AVkA3Q65CEZX59MT0QO5uiA=
-github.com/pkt-cash/btcutil v0.0.0-20190806103914-865c5b327429 h1:3+td0vhSC0ucmAa6/MMGe9anpdNVGEgOSAb/YIDwUNc=
-github.com/pkt-cash/btcutil v0.0.0-20190806103914-865c5b327429/go.mod h1:aA8EuA9SKllEf3/9kM6BaKEiFDFx3OtPd5kBiPtN9UM=
-github.com/pkt-cash/pktd v0.0.0-20190815160734-925b4aa6393a h1:8kOgeqoHGHwsmeWwlJSZ/lQ9WL1Ta/OoTu5mdOdgsjw=
-github.com/pkt-cash/pktd v0.0.0-20190815160734-925b4aa6393a/go.mod h1:86f3rclCbb+82672nKnYS7fDwtbwSJ/nBJQ7cZIlo9g=
+github.com/kaotisk-hund/btcutil v0.0.0-20190806103914-865c5b327429 h1:3+td0vhSC0ucmAa6/MMGe9anpdNVGEgOSAb/YIDwUNc=
+github.com/kaotisk-hund/btcutil v0.0.0-20190806103914-865c5b327429/go.mod h1:aA8EuA9SKllEf3/9kM6BaKEiFDFx3OtPd5kBiPtN9UM=
+github.com/kaotisk-hund/cjdcoind v0.0.0-20190815160734-925b4aa6393a h1:8kOgeqoHGHwsmeWwlJSZ/lQ9WL1Ta/OoTu5mdOdgsjw=
+github.com/kaotisk-hund/cjdcoind v0.0.0-20190815160734-925b4aa6393a/go.mod h1:86f3rclCbb+82672nKnYS7fDwtbwSJ/nBJQ7cZIlo9g=
 golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
 golang.org/x/crypto v0.0.0-20190701094942-4def268fd1a4 h1:HuIa8hRrWRSrqYzx1qI49NNxhdi2PrY7gxVSq1JjLDc=
 golang.org/x/crypto v0.0.0-20190701094942-4def268fd1a4/go.mod h1:yigFU9vqHzYiE8UmvKecakEJjdnWj3jj499lnFckfCI=

@@ -12,8 +12,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/pkt-cash/btcutil/hdkeychain"
-	"github.com/pkt-cash/libpktwallet/util/legacy/keystore"
+	"github.com/kaotisk-hund/btcutil/hdkeychain"
+	"github.com/kaotisk-hund/libcjdwallet/util/legacy/keystore"
 	"github.com/btcsuite/golangcrypto/ssh/terminal"
 )
 

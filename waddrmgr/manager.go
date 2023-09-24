@@ -11,12 +11,12 @@ import (
 	"sync"
 	"time"
 
-	"github.com/pkt-cash/btcutil"
-	"github.com/pkt-cash/btcutil/hdkeychain"
-	"github.com/pkt-cash/libpktwallet/snacl"
-	"github.com/pkt-cash/libpktwallet/util/zero"
-	"github.com/pkt-cash/libpktwallet/walletdb"
-	"github.com/pkt-cash/pktd/chaincfg"
+	"github.com/kaotisk-hund/btcutil"
+	"github.com/kaotisk-hund/btcutil/hdkeychain"
+	"github.com/kaotisk-hund/libcjdwallet/snacl"
+	"github.com/kaotisk-hund/libcjdwallet/util/zero"
+	"github.com/kaotisk-hund/libcjdwallet/walletdb"
+	"github.com/kaotisk-hund/cjdcoind/chaincfg"
 )
 
 const (

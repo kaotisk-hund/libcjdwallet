@@ -8,11 +8,11 @@
 // Full documentation of the API implemented by this package is maintained in a
 // language-agnostic document:
 //
-//   https://github.com/pkt-cash/libpktwallet/blob/master/rpc/documentation/api.md
+//   https://github.com/kaotisk-hund/libcjdwallet/blob/master/rpc/documentation/api.md
 //
 // Any API changes must be performed according to the steps listed here:
 //
-//   https://github.com/pkt-cash/libpktwallet/blob/master/rpc/documentation/serverchanges.md
+//   https://github.com/kaotisk-hund/libcjdwallet/blob/master/rpc/documentation/serverchanges.md
 package rpcserver
 
 import (
@@ -25,20 +25,20 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 
-	"github.com/pkt-cash/pktd/chaincfg/chainhash"
-	"github.com/pkt-cash/pktd/rpcclient"
-	"github.com/pkt-cash/pktd/txscript"
-	"github.com/pkt-cash/pktd/wire"
-	"github.com/pkt-cash/btcutil"
-	"github.com/pkt-cash/btcutil/hdkeychain"
-	"github.com/pkt-cash/libpktwallet/chain"
-	"github.com/pkt-cash/libpktwallet/util/cfgutil"
-	"github.com/pkt-cash/libpktwallet/util/zero"
-	"github.com/pkt-cash/libpktwallet/netparams"
-	pb "github.com/pkt-cash/libpktwallet/rpc/walletrpc"
-	"github.com/pkt-cash/libpktwallet/waddrmgr"
-	"github.com/pkt-cash/libpktwallet/wallet"
-	"github.com/pkt-cash/libpktwallet/walletdb"
+	"github.com/kaotisk-hund/cjdcoind/chaincfg/chainhash"
+	"github.com/kaotisk-hund/cjdcoind/rpcclient"
+	"github.com/kaotisk-hund/cjdcoind/txscript"
+	"github.com/kaotisk-hund/cjdcoind/wire"
+	"github.com/kaotisk-hund/btcutil"
+	"github.com/kaotisk-hund/btcutil/hdkeychain"
+	"github.com/kaotisk-hund/libcjdwallet/chain"
+	"github.com/kaotisk-hund/libcjdwallet/util/cfgutil"
+	"github.com/kaotisk-hund/libcjdwallet/util/zero"
+	"github.com/kaotisk-hund/libcjdwallet/netparams"
+	pb "github.com/kaotisk-hund/libcjdwallet/rpc/walletrpc"
+	"github.com/kaotisk-hund/libcjdwallet/waddrmgr"
+	"github.com/kaotisk-hund/libcjdwallet/wallet"
+	"github.com/kaotisk-hund/libcjdwallet/walletdb"
 )
 
 // Public API version constants

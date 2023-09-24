@@ -7,8 +7,8 @@
 package helpers
 
 import (
-	"github.com/pkt-cash/pktd/wire"
-	"github.com/pkt-cash/btcutil"
+	"github.com/kaotisk-hund/cjdcoind/wire"
+	"github.com/kaotisk-hund/btcutil"
 )
 
 // SumOutputValues sums up the list of TxOuts and returns an Amount.
